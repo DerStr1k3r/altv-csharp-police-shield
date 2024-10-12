@@ -20,7 +20,8 @@ To equip a riot shield emit the following **serverside**:
 
 Or use the following code: **serverside**:
 
-```if (!player.HasData("shield")){
+```
+if (!player.HasData("shield")){
     bool shieldstate = true;
     int istate = shieldstate ? 1 : 0;
     player.SetStreamSyncedMetaData("shield", istate);
@@ -28,7 +29,8 @@ Or use the following code: **serverside**:
 } else {
     player.DeleteStreamSyncedMetaData("shield");
     player.DeleteStreamSyncedMetaData("shieldstatus");
-}```
+}
+```
 
 ## Test setup
 
