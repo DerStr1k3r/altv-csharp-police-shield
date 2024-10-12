@@ -36,7 +36,7 @@ namespace DerStr1k3r.Handler
         }
 
         [AsyncClientEvent("playerEnteringVehicle")]
-        public async Task UseItem(RoleplayPlayer player)
+        public async Task RemoveFromVehicle(RoleplayPlayer player)
         {
             try
             {
@@ -46,7 +46,7 @@ namespace DerStr1k3r.Handler
         }
 
         [AsyncClientEvent("playerLeftVehicle")]
-        public async Task UseItem(RoleplayPlayer player)
+        public async Task AddFromLeftVehicle(RoleplayPlayer player)
         {
             try
             {
