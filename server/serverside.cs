@@ -16,40 +16,43 @@ namespace DerStr1k3r.Handler
         {
             try
             {
-				    if (!player.HasData("shield"))
-                    {
-						// Police Shield angelegt
-                        bool shieldstate = true;
-                        int istate = shieldstate ? 1 : 0;
-                        player.SetStreamSyncedMetaData("shield", istate);
-                        player.SetStreamSyncedMetaData("shieldstatus", istate);
+                if (!player.HasData("shield"))
+                {
+                    // Police Shield angelegt
+                    bool shieldstate = true;
+                    int istate = shieldstate ? 1 : 0;
+                    player.SetStreamSyncedMetaData("shield", istate);
+                    player.SetStreamSyncedMetaData("shieldstatus", istate);
 
-                    }
-                    else
-                    {
-						// Police Shield abgelegt
-                        player.DeleteStreamSyncedMetaData("shield");
-                        player.DeleteStreamSyncedMetaData("shieldstatus");
-                    }
-			}
-		}
-		
+                }
+                else
+                {
+                    // Police Shield abgelegt
+                    player.DeleteStreamSyncedMetaData("shield");
+                    player.DeleteStreamSyncedMetaData("shieldstatus");
+                }
+            }
+
+        }
+
         [AsyncClientEvent("playerEnteringVehicle")]
         public async Task UseItem(RoleplayPlayer player)
         {
             try
             {
-				    player.EmitLocked("Client:Shield:RemoveShieldForVehicle");
-			}
-		}
+                player.EmitLocked("Client:Shield:RemoveShieldForVehicle");
+            }
+
+        }
 
         [AsyncClientEvent("playerLeftVehicle")]
         public async Task UseItem(RoleplayPlayer player)
         {
             try
             {
-				    player.EmitLocked("Client:Shield:AddShieldAfterVehicle");
-			}
-		}
-	}
-}		
+                player.EmitLocked("Client:Shield:AddShieldAfterVehicle");
+            }
+
+        }
+    }
+}
